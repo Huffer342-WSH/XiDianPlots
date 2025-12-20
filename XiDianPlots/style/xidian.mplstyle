@@ -1,0 +1,111 @@
+# =========================================================================
+# Xidian University Master's Thesis Style
+# =========================================================================
+# 基础规范: A4 纸张, 单列排版, 5号字 (10.5pt), Times New Roman (英) + 宋体 (中)
+
+# -------------------------------------------------------------------------
+# 1. Figure Size & Layout (画布与布局)
+# -------------------------------------------------------------------------
+# A4 宽度 210mm, 左右边距各 2.5cm, 内容宽度约 160mm (6.3英寸)
+# 高度设为 2.8 英寸以保持较好的长宽比
+figure.figsize : 5, 2.8
+
+# 默认屏幕显示 DPI 设为 96 (防止预览时窗口过大)
+# 保存时建议在代码中指定 dpi=600
+figure.dpi : 96
+
+# 保存时自动裁剪周围白边，紧凑布局
+savefig.bbox : tight
+savefig.pad_inches : 0.05
+
+# -------------------------------------------------------------------------
+# 2. Colors (配色方案)
+# -------------------------------------------------------------------------
+# 顺序: 蓝, 橙, 黄, 紫, 绿, 青, 红
+axes.prop_cycle : cycler('color', ['0072BD', 'D95319', 'EDB120', '7E2F8E', '77AC30', '4DBEEE', 'A2142F'])
+
+# -------------------------------------------------------------------------
+# 3. Fonts (字体设置)
+# -------------------------------------------------------------------------
+# 字号标准: "5号" = 10.5 pt
+font.size : 10.5
+axes.labelsize : 10.5
+xtick.labelsize : 10.5
+ytick.labelsize : 10.5
+legend.fontsize : 10.5
+figure.titlesize : 10.5
+
+# 字体系列
+# 将 RomanSong (含 TNR + 宋体) 视为衬线体处理
+font.family : serif
+# 优先使用 RomanSong，如果未安装则回退到标准系统字体
+font.serif : RomanSong, TeX Gyre Termes, Noto Serif CJK SC, Times New Roman, SimSun, serif
+
+# 数学字体
+# 使用 Dejavu Serif 模拟 LaTeX 公式风格，无需外部 LaTeX 环境
+mathtext.fontset : dejavuserif
+# 修正负号显示为方块的问题
+axes.unicode_minus : False
+
+# 禁用默认的 TeX 渲染 (确保兼容自定义 TTF 字体)
+text.usetex : False
+
+# -------------------------------------------------------------------------
+# 4. Axis & Ticks (坐标轴与刻度)
+# -------------------------------------------------------------------------
+# 刻度线朝内，符合学术出版规范
+xtick.direction : in
+ytick.direction : in
+
+# 顶部和右侧也显示刻度线 (形成封闭框)
+xtick.top : True
+ytick.right : True
+
+# 主刻度大小与宽度
+xtick.major.size : 3
+xtick.major.width : 0.5
+ytick.major.size : 3
+ytick.major.width : 0.5
+
+# 次刻度 (开启并设置较小尺寸)
+xtick.minor.visible : True
+xtick.minor.size : 1.5
+xtick.minor.width : 0.5
+ytick.minor.visible : True
+ytick.minor.size : 1.5
+ytick.minor.width : 0.5
+
+# -------------------------------------------------------------------------
+# 5. Lines & Grid (线条与网格)
+# -------------------------------------------------------------------------
+# 坐标轴边框线宽
+axes.linewidth : 1.0
+# 网格线宽
+grid.linewidth : 1.0
+
+# 绘图曲线线宽 (比 SciencePlots 略粗，适应 A4 打印)
+lines.linewidth : 1.5
+# 数据点标记大小
+lines.markersize : 6
+
+# -------------------------------------------------------------------------
+# 6. Legend (图例)
+# -------------------------------------------------------------------------
+# 去除图例边框，保持简洁
+legend.frameon : True
+# 增加行间距，适配中文 5 号字的高度
+legend.labelspacing : 1.0
+
+# -------------------------------------------------------------------------
+# 7. PGF Backend Configuration (LaTeX 导出配置)
+# -------------------------------------------------------------------------
+# 以下设置仅在使用 pgf 后端 (保存为 PDF) 时生效
+
+# 指定 xelatex 引擎以支持 Unicode/中文
+pgf.texsystem : xelatex
+
+# 禁用 matplotlib 内部字体转换，完全交给 LaTeX 处理
+pgf.rcfonts : False
+
+# PGF 导言区: 加载数学包、xeCJK 中文包、设置主字体 (TNR) 和中文字体 (宋体)
+pgf.preamble : \usepackage{amsmath} \usepackage{amssymb} \usepackage{xeCJK} \setmainfont{Times New Roman} \setCJKmainfont{SimSun}

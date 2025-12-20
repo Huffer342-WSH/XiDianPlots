@@ -1,0 +1,16 @@
+# =========================================================================
+# Grid Style (Optional Add-on)
+# =========================================================================
+# Usage: with plt.style.context(['xidian', 'grid']): ...
+
+# 开启网格
+axes.grid : True
+
+# 将网格置于数据下方 (Z-order lower)，防止遮挡曲线
+axes.axisbelow : True
+
+# 网格样式配置
+grid.linestyle : -      # 实线 (Solid Line)
+grid.linewidth : 0.5    # 细线
+grid.alpha : 0.6        # 半透明
+grid.color : d8d8d8     # 浅灰色 (Light Gray)
