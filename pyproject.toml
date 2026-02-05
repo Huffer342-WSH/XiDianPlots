@@ -9,20 +9,13 @@ version = "0.1.0"
 description = "Matplotlib style for Xidian University Thesis"
 readme = "README.md"
 requires-python = ">=3.6"
-authors = [
-    {name = "Your Name", email = "your.email@example.com"},
-]
-dependencies = [
-    "matplotlib>=3.2.0",
-    "requests",
-]
+authors = [{ name = "Huffer342-WSH", email = "718007138@qq.com" }]
+dependencies = ["matplotlib>=3.2.0", "PyMuPDF", "requests"]
 
-# --- 以前在 setup.py 中的配置现在移动到了这里 ---
 
-# 1. 自动查找包 (相当于 find_packages())
 [tool.setuptools.packages.find]
 where = ["."]
 
-# 2. 包含非 Python 文件 (相当于 package_data)
+
 [tool.setuptools.package-data]
 "XiDianPlots.style" = ["*.mplstyle", "*.ttf"]
