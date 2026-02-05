@@ -48,4 +48,3 @@ def savefig(fig: Figure, filename, dpi=600, backend="pgf", **kwargs):
                     pass
     else:
         fig.savefig(filename, dpi=dpi, backend=backend, **kwargs)
-        print(f"[XiDianPlots] 已保存: {filename}")
