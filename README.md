@@ -119,3 +119,11 @@ fig.savefig("figure.png", dpi=300)
 ```
 
 ---
+
+## 开发
+
+###  初始化
+
+ ```sh
+ uv sync
+ ```
