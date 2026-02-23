@@ -8,9 +8,13 @@ name = "XiDianPlots"
 version = "0.1.0"
 description = "Matplotlib style for Xidian University Thesis"
 readme = "README.md"
-requires-python = ">=3.6"
+requires-python = ">=3.9"
 authors = [{ name = "Huffer342-WSH", email = "718007138@qq.com" }]
-dependencies = ["matplotlib>=3.2.0", "PyMuPDF", "requests"]
+dependencies = [
+    "matplotlib>=3.2.0",
+    "PyMuPDF",
+    "requests",
+]
 
 
 [tool.setuptools.packages.find]
