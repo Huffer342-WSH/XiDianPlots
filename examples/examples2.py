@@ -14,9 +14,10 @@ fig, ax = plt.subplots()
 ax.plot(x, y1, label=r"Theory: $e^{-\alpha t} \sin(\omega t)$")
 ax.plot(x, y2, label=r"Experiment: $\cos(\theta)$")
 
-ax.set_xlabel(r"时间 Time ($t$)")
-ax.set_ylabel(r"幅值 Amplitude ($A$)")
-ax.set_title(r"系统响应 System Response")
+ax.set_xlabel(r"时间 Time (s) $(s)$ (\si{\second})")
+ax.set_ylabel(r"幅值 Amplitude (\si{\volt})")
+ax.set_title(r"系统响应 System Response (\SI{10}{\hertz})")
+
 ax.legend(loc="upper right")
 
 # 默认后端
