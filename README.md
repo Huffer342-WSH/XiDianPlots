@@ -14,8 +14,15 @@
 
 ### 方式 1：pip
 
-```
+**安装**
+
+```sh
 pip install git+https://github.com/Huffer342-WSH/XiDianPlots.git
+```
+
+**更新**
+```sh
+pip install --upgrade --no-cache-dir git+https://github.com/Huffer342-WSH/XiDianPlots.git
 ```
 
 ### 方式 2：git clone + pip
