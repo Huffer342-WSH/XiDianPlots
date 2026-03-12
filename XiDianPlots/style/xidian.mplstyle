@@ -1,81 +1,139 @@
 # =========================================================================
-# Xidian University Master's Thesis Style
+# Xidian University Master's Thesis Matplotlib Style
 # =========================================================================
-# 基础规范: A4纸张, 单列排版, 5号字(10.5pt), Times New Roman(英)+宋体(中)
+# 适用于西电硕士论文图表
+# 版式参考: A4 单栏排版，内容区宽度约160 mm，正文 5号字 (10.5 pt)
+# 英文字体 Times New Roman，中文字体 宋体
+# -------------------------------------------------------------------------
 
-# -------------------------------------------------------------------------
-# 1. Figure Size & Layout
-# -------------------------------------------------------------------------
-figure.figsize : 5.8, 3.58  # A4内容区宽度约160mm，高度2.8英寸
-figure.dpi : 96             # 屏幕显示DPI，保存时建议dpi=600
-savefig.bbox : tight        # 自动裁剪白边
 
-# -------------------------------------------------------------------------
-# 2. Colors
-# -------------------------------------------------------------------------
-# 配色顺序: 蓝, 橙, 黄, 紫, 绿, 青, 红
-axes.prop_cycle : cycler('color', ['0072BD', 'D95319', 'EDB120', '7E2F8E', '77AC30', '4DBEEE', 'A2142F'])
+# =========================================================================
+# 1. Figure / Export
+# =========================================================================
+# 图像尺寸与导出行为
 
-# -------------------------------------------------------------------------
+figure.figsize: 5.8, 3.58     # 默认图像尺寸（英寸），约等于论文内容区宽度
+figure.dpi: 96                # 屏幕显示 DPI
+savefig.bbox: tight           # 保存时自动裁剪多余白边
+
+
+
+# =========================================================================
+# 2. Color Cycle
+# =========================================================================
+# 默认颜色循环（高区分度调色板）
+# 颜色顺序经过调整以保证相邻曲线易于区分
+
+axes.prop_cycle: cycler('color', ['0072BD','D95319','EDB120','7E2F8E','77AC30','4DBEEE','A2142F','000000','FF7F0E','2CA02C','9467BD','8C564B'])
+
+
+# =========================================================================
 # 3. Fonts
-# -------------------------------------------------------------------------
-font.size : 10.5            # 5号字标准
-axes.labelsize : 10.5
-xtick.labelsize : 10.5
-ytick.labelsize : 10.5
-legend.fontsize : 10.5
-figure.titlesize : 10.5
-axes.titlesize : 10.5
-axes.titleweight : normal
+# =========================================================================
+# 字体与字号设置
 
-font.family : serif         # 衬线字体
+font.family: serif
+# 衬线字体优先级（英文字体 + 中文字体）
 font.serif : RomanSong, TeX Gyre Termes, Noto Serif CJK SC, Times New Roman, SimSun, serif
 
-mathtext.fontset : dejavuserif  # 数学字体
-axes.unicode_minus : False      # 修正负号显示
-text.usetex : False             # 禁用TeX渲染
+font.size: 10.5               # 全局字体大小（5号字）
+axes.labelsize: 10.5          # 坐标轴标签字体
+axes.titlesize: 10.5          # 子图标题字体
+axes.titleweight: normal      # 标题不加粗
+
+xtick.labelsize: 10.5         # x轴刻度字体
+ytick.labelsize: 10.5         # y轴刻度字体
+
+legend.fontsize: 10.5         # 图例字体
+figure.titlesize: 10.5        # Figure 总标题字体
+
 
 # -------------------------------------------------------------------------
-# 4. Axis & Ticks
+# 数学字体
 # -------------------------------------------------------------------------
-xtick.direction : in            # 刻度线朝内
-ytick.direction : in
-xtick.top : True                # 显示顶部刻度
-ytick.right : True              # 显示右侧刻度
 
-# 主刻度设置
-xtick.major.size : 3
-xtick.major.width : 0.5
+mathtext.fontset: dejavuserif # 数学公式字体风格
+axes.unicode_minus: False     # 使用标准负号而非 unicode 减号
+text.usetex: False            # 不启用 LaTeX 渲染（使用 matplotlib mathtext）
+
+
+
+# =========================================================================
+# 4. Axis Style
+# =========================================================================
+# 坐标轴外观
+
+axes.linewidth: 0.5           # 坐标轴线宽
+
+
+
+# =========================================================================
+# 5. Ticks
+# =========================================================================
+# 刻度样式
+
+# --- X axis ---
+xtick.direction: in           # 刻度朝内
+xtick.major.size: 3           # 主刻度长度
+xtick.major.width: 0.5        # 主刻度线宽
+
+xtick.minor.visible: True     # 显示次刻度
+xtick.minor.size: 1.5         # 次刻度长度
+xtick.minor.width: 0.5        # 次刻度线宽
+
+xtick.top: True               # 顶部也显示刻度
+
+
+# --- Y axis ---
+ytick.direction: in
 ytick.major.size : 3
 ytick.major.width : 0.5
 
-# 次刻度设置
-xtick.minor.visible : True
-xtick.minor.size : 1.5
-xtick.minor.width : 0.5
 ytick.minor.visible : True
 ytick.minor.size : 1.5
 ytick.minor.width : 0.5
 
-# -------------------------------------------------------------------------
-# 5. Lines & Grid
-# -------------------------------------------------------------------------
-axes.linewidth : 0.8            # 坐标轴线宽
-grid.linewidth : 0.5            # 网格线宽
-grid.alpha : 0.3                # 网格透明度
-lines.linewidth : 1.2           # 曲线线宽
-lines.markersize : 6            # 标记大小
+ytick.right: True             # 右侧也显示刻度
 
-# -------------------------------------------------------------------------
-# 6. Legend
-# -------------------------------------------------------------------------
-legend.frameon : False          # 无边框
-legend.labelspacing : 1.0       # 行间距
 
-# -------------------------------------------------------------------------
-# 7. PGF Backend Configuration (LaTeX导出)
-# -------------------------------------------------------------------------
-pgf.texsystem : xelatex         # 使用xelatex引擎
-pgf.rcfonts : False             # 禁用内部字体转换
-# PGF导言区: 数学包、xeCJK、字体设置
-pgf.preamble : \usepackage{amsmath} \usepackage{amssymb} \usepackage{xeCJK} \usepackage{siunitx} \setmainfont{Times New Roman} \setCJKmainfont{SimSun}
+
+# =========================================================================
+# 6. Lines / Markers
+# =========================================================================
+# 曲线与标记样式
+
+lines.linewidth: 1.           # 曲线线宽
+lines.markersize: 3           # marker 大小
+
+
+
+# =========================================================================
+# 7. Grid
+# =========================================================================
+# 网格样式
+
+grid.linewidth: 0.5           # 网格线宽
+grid.alpha: 0.3               # 网格透明度
+
+
+
+# =========================================================================
+# 8. Legend
+# =========================================================================
+# 图例样式
+
+legend.frameon: False         # 不显示图例边框
+legend.labelspacing: 1.0      # 图例条目之间的垂直间距
+
+
+
+# =========================================================================
+# 9. PGF / LaTeX Backend
+# =========================================================================
+# 用于导出 PGF（LaTeX 可编辑图形）
+
+pgf.texsystem: xelatex        # 使用 XeLaTeX 引擎
+pgf.rcfonts: False            # 不使用 matplotlib 字体映射
+
+# PGF 导言区（加载数学与中文支持）
+pgf.preamble: \usepackage{amsmath} \usepackage{amssymb} \usepackage{xeCJK} \usepackage{siunitx} \setmainfont{Times New Roman} \setCJKmainfont{SimSun}
